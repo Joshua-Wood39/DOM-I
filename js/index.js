@@ -51,9 +51,44 @@ for (let i = 1; i < navItems.length + 1; i++) {
 //Title and Button and Image
 let ctaTitle = document.querySelector('h1');
 console.log(ctaTitle);
-ctaTitle.textContent = siteContent.cta['h1'];
+ctaTitle.innerHTML = "DOM</br>Is</br>Awesome";
 let ctaButton = document.querySelector('.cta-text button');
 ctaButton.textContent = siteContent.cta['button'];
 let ctaImage = document.querySelector('#cta-img');
 ctaImage.setAttribute('src', siteContent.cta['img-src']);
 
+
+//Main content: titles and content, and image
+let tContentH = document.querySelectorAll('.main-content h4');
+console.log(tContentH);
+let tContentP = document.querySelectorAll('.main-content p');
+console.log(tContentP);
+
+tContentH[0].textContent = siteContent['main-content']['features-h4'];
+tContentH[1].textContent = siteContent['main-content']['about-h4'];
+tContentH[2].textContent = siteContent['main-content']['services-h4'];
+tContentH[3].textContent = siteContent['main-content']['product-h4'];
+tContentH[4].textContent = siteContent['main-content']['vision-h4'];
+
+tContentP[0].textContent = siteContent['main-content']['features-content'];
+tContentP[1].textContent = siteContent['main-content']['about-content'];
+tContentP[2].textContent = siteContent['main-content']['services-content'];
+tContentP[3].textContent = siteContent['main-content']['product-content'];
+tContentP[4].textContent = siteContent['main-content']['vision-content'];
+
+let tContentImg = document.getElementById('middle-img');
+tContentImg.setAttribute('src', siteContent['main-content']['middle-img-src']);
+
+
+//Contact section
+let contactContentH = document.querySelector('.contact h4');
+let contactContentP = document.querySelectorAll('.contact p');
+
+contactContentH.textContent = siteContent.contact['contact-h4'];
+contactContentP[0].innerHTML = "123 Way 456 Street</br>Somewhere, USA"
+contactContentP[1].textContent = siteContent.contact['phone'];
+contactContentP[2].textContent = siteContent.contact['email'];
+
+//Footer
+let foot = document.querySelector('footer p');
+foot.textContent = siteContent.footer['copyright'];
