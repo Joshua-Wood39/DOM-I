@@ -47,6 +47,9 @@ console.log(navItems);
 for (let i = 1; i < navItems.length + 1; i++) {
     navItems[i - 1].textContent = siteContent.nav[`nav-item-${i}`];
 }
+Array.from(navItems).forEach(element => {
+    element.style.color = "green";
+});
 
 //Title and Button and Image
 let ctaTitle = document.querySelector('h1');
@@ -92,3 +95,43 @@ contactContentP[2].textContent = siteContent.contact['email'];
 //Footer
 let foot = document.querySelector('footer p');
 foot.textContent = siteContent.footer['copyright'];
+
+//Append and Prepend
+let navBarNew = document.querySelector('nav');
+const newStuff = document.createElement('div');
+const moreNew = document.createElement('div');
+newStuff.textContent = "E = mc hammer";
+moreNew.textContent = "You can't click this."
+navBarNew.prepend(newStuff);
+navBarNew.appendChild(moreNew);
+
+//Stretch Updates
+
+tContentH.forEach(element => {
+    element.style.color = 'red';
+})
+
+let bottomCont = document.querySelector('.contact');
+bottomCont.style.display = 'flex';
+bottomCont.style['justify-content'] = 'space-around';
+
+contactContentH.style['font-size'] = '70px';
+contactContentH.style.color = 'black';
+
+//Further Stretch Challenge
+
+let newButton = document.createElement('button');
+newButton.textContent = 'Click Me!';
+newButton.style.border = '3px solid black';
+newButton.style.cursor = 'pointer';
+bottomCont.appendChild(newButton);
+
+function changeColor() {
+    if (contactContentH.style.color === 'black') {
+        contactContentH.style.color = 'red';
+    } else {
+        contactContentH.style.color = 'black';
+    }
+}
+
+newButton.addEventListener('click', changeColor, false);
