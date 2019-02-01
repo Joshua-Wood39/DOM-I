@@ -40,3 +40,98 @@ const siteContent = {
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+// NavBar
+let navItems = document.getElementsByTagName('a');
+console.log(navItems);
+for (let i = 1; i < navItems.length + 1; i++) {
+    navItems[i - 1].textContent = siteContent.nav[`nav-item-${i}`];
+}
+Array.from(navItems).forEach(element => {
+    element.style.color = "green";
+});
+
+//Title and Button and Image
+let ctaTitle = document.querySelector('h1');
+console.log(ctaTitle);
+ctaTitle.innerHTML = "DOM</br>Is</br>Awesome";
+let ctaButton = document.querySelector('.cta-text button');
+ctaButton.textContent = siteContent.cta['button'];
+let ctaImage = document.querySelector('#cta-img');
+ctaImage.setAttribute('src', siteContent.cta['img-src']);
+
+
+//Main content: titles and content, and image
+let tContentH = document.querySelectorAll('.main-content h4');
+console.log(tContentH);
+let tContentP = document.querySelectorAll('.main-content p');
+console.log(tContentP);
+
+tContentH[0].textContent = siteContent['main-content']['features-h4'];
+tContentH[1].textContent = siteContent['main-content']['about-h4'];
+tContentH[2].textContent = siteContent['main-content']['services-h4'];
+tContentH[3].textContent = siteContent['main-content']['product-h4'];
+tContentH[4].textContent = siteContent['main-content']['vision-h4'];
+
+tContentP[0].textContent = siteContent['main-content']['features-content'];
+tContentP[1].textContent = siteContent['main-content']['about-content'];
+tContentP[2].textContent = siteContent['main-content']['services-content'];
+tContentP[3].textContent = siteContent['main-content']['product-content'];
+tContentP[4].textContent = siteContent['main-content']['vision-content'];
+
+let tContentImg = document.getElementById('middle-img');
+tContentImg.setAttribute('src', siteContent['main-content']['middle-img-src']);
+
+
+//Contact section
+let contactContentH = document.querySelector('.contact h4');
+let contactContentP = document.querySelectorAll('.contact p');
+
+contactContentH.textContent = siteContent.contact['contact-h4'];
+contactContentP[0].innerHTML = "123 Way 456 Street</br>Somewhere, USA"
+contactContentP[1].textContent = siteContent.contact['phone'];
+contactContentP[2].textContent = siteContent.contact['email'];
+
+//Footer
+let foot = document.querySelector('footer p');
+foot.textContent = siteContent.footer['copyright'];
+
+//Append and Prepend
+let navBarNew = document.querySelector('nav');
+const newStuff = document.createElement('div');
+const moreNew = document.createElement('div');
+newStuff.textContent = "E = mc hammer";
+moreNew.textContent = "You can't click this."
+navBarNew.prepend(newStuff);
+navBarNew.appendChild(moreNew);
+
+//Stretch Updates
+
+tContentH.forEach(element => {
+    element.style.color = 'red';
+})
+
+let bottomCont = document.querySelector('.contact');
+bottomCont.style.display = 'flex';
+bottomCont.style['justify-content'] = 'space-around';
+
+contactContentH.style['font-size'] = '70px';
+contactContentH.style.color = 'black';
+
+//Further Stretch Challenge
+
+let newButton = document.createElement('button');
+newButton.textContent = 'Click Me!';
+newButton.style.border = '3px solid black';
+newButton.style.cursor = 'pointer';
+bottomCont.appendChild(newButton);
+
+function changeColor() {
+    if (contactContentH.style.color === 'black') {
+        contactContentH.style.color = 'red';
+    } else {
+        contactContentH.style.color = 'black';
+    }
+}
+
+newButton.addEventListener('click', changeColor, false);
